@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Pronto cafe | Comrat</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container-logo">
+            <a href="../index.html">
+                <img class="img-header" src="../images/logo1.png" />
+            </a>
+        </div>
+        <navbar>
+            <a href="menu.html">Меню</a>
+            <a href="contacte.html">Контакты</a>
+        </navbar>
+    </header>
+
+
+    <div class="container">
+
+        <aside>
+            <a href="dejunuri.html"> <i class="fas fa-utensils"></i>Завтраки</a>
+            <a href="pizza.html"> <i class="fas fa-pizza-slice"></i> Пицца</a>
+            <a href="salate.html"> <i class="fas fa-seedling"></i> Салаты</a>
+            <a href="aperitive.html"> <i class="fas fa-utensils"></i> Закуски</a>
+            <a href="paste.html"> <i class="fas fa-utensils"></i> Паста</a>
+            <a href="bauturi.html"> <i class="fas fa-wine-glass"></i> Коктейли</a>
+        </aside>
+
+        <main>
+            <h1 class="centered">Контакты</h1>
+            <hr />
+            <div class="container-contacte">
+                <div class="row">
+                    <div class="col-50 forma-contact">
+                        <h5 class="centered">Ваше мнение очень важно для нас!
+                            Вы в любой момент можете связаться с нами по любым вопросам. </h5>
+                        <form autocomplete="off" id="formular">
+                            <input type="text" placeholder="Имя" required id="nume">
+                            <input type="email" placeholder="Email" required id="email">
+                           
+                            <textarea placeholder="Сообщение" rows="6" id="mesaj"></textarea>
+                            <input id="transmite" type="button" value="Отправить" onclick="send()">
+                        </form>
+                    </div>
+                    <div class="col-50 telefoane-contact centered">
+                        <h3 class="centered">Контакты </h3>
+                        <br /> 
+                        <b>График работы: 9.30 - 23.00</b>
+                        <br /> <br />
+                        <b>Email</b> <a href="prontocomrat25@gmail.com" class="link-info">prontocomrat25@gmail.com</a><br />
+                        <br />
+
+                        <a href="https://www.facebook.com/prontocafemd/?locale=ru_RU" target="_blank" class="facebook-button">
+                            Перейти в Facebook
+                          </a>
+                    
+                        <br /> <br />
+                        <b>Бронирование / доставка:</b>
+                        <a href="tel:+373-68-414-111" class="link-success">
+                            <br />+373-68-414-111</a>,&nbsp;&nbsp;
+        
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-50 centered adrese-contact">
+                        <h3 class="centered">Адрес </h3>
+                        <br />
+                        <b>3805, АТО Гагаузия,</b> 
+                        <br /> <br />
+                        <b>Комрат:</b> <span>ул. Победы 30А</span>
+                        <br /> <br />
+                        
+                    </div>
+
+                    <div class="col-50">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.329886792591!2d28.655808810937998!3d46.30328557694494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c9d9864e3756d1%3A0x4189ee87d662abb3!2sPronto%20Cafe!5e0!3m2!1sru!2s!4v1711010461410!5m2!1sru!2s" 
+                            width="350" height="400" style="border:0;" 
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+
+    </div>
+
+    <footer>
+        <h5> Pronto cafe | Comrat 2025 ©</h5>
+        <h5>Tekwill Junior Ambassadors | Tekwill în Fiecare Școală</h5>
+    </footer>
+
+    <script>
+
+        (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+        
+                emailjs.init("098grmocROkTWgbr4");
+        
+                const form = document.getElementById("formular");
+        
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Previne reîncărcarea paginii
+        
+                    // Trimite datele formularului prin EmailJS
+                    emailjs.sendForm("service_g8lnzzn", "template_92hx41i", form)
+                        .then(function (response) {
+                            alert("Спасибо!");
+                            console.log("Succes:", response.status, response.text);
+                            form.reset(); 
+                        }, function (error) {
+                            alert("Error sending the message");
+                            console.error("Error:", error);
+                        });
+                });
+        
+            </script>
+</body>
+
+</html>
